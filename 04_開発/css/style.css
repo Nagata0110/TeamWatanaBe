@@ -1,0 +1,11 @@
+/* ヘッダー色変更 */
+.navbar {
+    background-color: #d9d9d9;    
+}
+
+/* ロゴ中央寄せ */
+.navbar a.navbar-brand{
+    font-weight: bold; /*文字の太さ*/
+    margin: 0 auto;
+    display: table;
+}
