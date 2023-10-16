@@ -22,3 +22,6 @@
 .radio-button {
     margin-right: 10px; /* ラジオボタンとテキストボックスの間隔を調整 */
 }
+.error{
+    color: red;
+}
