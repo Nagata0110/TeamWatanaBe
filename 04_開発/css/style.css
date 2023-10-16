@@ -13,3 +13,12 @@
 .statement{
     font-size: 20px;
 }
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.radio-button {
+    margin-right: 10px; /* ラジオボタンとテキストボックスの間隔を調整 */
+}
