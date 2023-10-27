@@ -39,37 +39,38 @@
         </nav>
     </div>
 
+<form action="" method="post">
     <div class="title mt-4 ms-4 me-4">
         <label for="title" class="title"><h5>タイトル</h5></label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="タイトルを入力してください。">
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="タイトルを入力してください。" name="title">
     </div>
         <div class="title mt-4 ms-4 me-4">
             <label for="exampleFormControlTextarea1" class="form-label"><h5>問題文</h5></label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"  style="resize: none;" placeholder="問題文を入力してください。(800字以内で)"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"  style="resize: none;" placeholder="問題文を入力してください。(800字以内で)" name="question"></textarea>
         </div>
         
         <label for="radioButton" class="mt-5 ms-4 me-4">選択肢１</label>
         <div class="container" class="ms-4 me-4">
             <input type="radio" id="choices1" name="choices1" class="radio-button" value="">
-            <input type="text" class="form-control" id="exampleFormControlInput1">
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="choices1">
         </div>
 
         <label for="radioButton" class="ms-4 me-4">選択肢２</label>
         <div class="container" class="ms-4 me-4">
             <input type="radio" id="choices1" name="choices1" class="radio-button" value="">
-            <input type="text" class="form-control" id="exampleFormControlInput1">
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="choices2">
         </div>
 
         <label for="radioButton" class="ms-4 me-4">選択肢３</label>
         <div class="container" class="ms-4 me-4">
             <input type="radio" id="choices1" name="choices1" class="radio-button" value="">
-            <input type="text" class="form-control" id="exampleFormControlInput1">
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="choices3">
         </div>
 
         <label for="radioButton" class="ms-4 me-4">選択肢４</label>
         <div class="container" class="ms-4 me-4">
             <input type="radio" id="choices1" name="choices1" class="radio-button" value="">
-            <input type="text" class="form-control" id="exampleFormControlInput1">
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="choices4">
         </div>
         <p class="mt-2 ms-4 me-4 error">※答えをラジオボタンで選択してください。</p>
 
@@ -90,11 +91,11 @@
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" style="resize: none;" placeholder="解説を入力してください。(800字以内で)"></textarea>
         </div>
 
-        <div class="title mt-4 ms-4 me-4"></div>
+        <div class="title mt-4 ms-4 me-4">
             <button class="btn btn-secondary offset-1 col-4">戻る</button>
-            <button class="btn btn-primary offset-2 col-4">確認</button>
+            <button class="btn btn-primary offset-2 col-4" type="submit">確認</button>
         </div>
-
+</form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>
