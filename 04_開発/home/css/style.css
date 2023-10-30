@@ -1,0 +1,49 @@
+.navbar {
+    background-color: #d9d9d9;/* ヘッダー色変更 */
+}
+
+/* ロゴ中央寄せ */
+.navbar a.navbar-brand{
+    font-weight: bold; /*文字の太さ*/
+    margin: 0 auto;
+    display: table;
+}
+
+/* 問題文の大きさ */
+.statement{
+    font-size: 20px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.radio-button {
+    margin-right: 10px; /* ラジオボタンとテキストボックスの間隔を調整 */
+}
+.error{
+    color: red;
+}
+
+.radioclass{
+    font-size: 20px;
+}
+
+/* style.css */
+
+/* 画像の間隔を均等に設定 */
+.imgjun {
+    /* width: 100%; 
+    margin : 10px ;
+    padding : 10px ;
+    border : 10px ; */
+    width: 50%;
+   height: 50%;
+}
+
+.a{
+    text-decoration: none;
+}
+
+
