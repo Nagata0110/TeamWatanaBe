@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="shortcut icon" href="../img/OIG.4l.jpg">
-    <title>問題作成画面</title>
+    <title>問題作成確認画面</title>
 </head>
 <body>
     <!-- ヘッダー -->
@@ -40,50 +40,47 @@
     </div>
 
     <div class="title mt-4 ms-4 me-4">
-        <label for="title"><h5>タイトル</h5></label>
-        <input type="text" class="form-control" id="titleInput" placeholder="タイトルを入力してください">
+        <label for="title"><h5>タイトル</h5></label><br>
+        仮：formからの値を表示する(タイトル)
     </div>
     <div class="title mt-4 ms-4 me-4">
-        <label for="questionText" class="form-label"><h5>問題文</h5></label>
-        <textarea class="form-control" id="questionText" rows="5" style="resize: none;" placeholder="問題文を入力してください (800字以内で)"></textarea>
+        <label for="questionText" class="form-label"><h5>問題文</h5></label><br>
+        仮：formからの値を表示する（問題文）
     </div>
 
-    <div class="title mt-4 ms-4 me-4">
-        <label><h5>選択肢</h5></label>
-        <div class="container ms-4 me-4">
-            <div class="form-check">
-                <input type="radio" id="choice1" name="choices" class="form-check-input" value="choice1">
-                <input type="text" class="form-control" id="choice1Text">
-            </div>
-            <div class="form-check">
-                <input type="radio" id="choice2" name="choices" class="form-check-input" value="choice2">
-                <input type="text" class="form-control" id="choice2Text">
-            </div>
-            <div class="form-check">
-                <input type="radio" id="choice3" name="choices" class="form-check-input" value="choice3">
-                <input type="text" class="form-control" id="choice3Text">
-            </div>
-            <div class="form-check">
-                <input type="radio" id="choice4" name="choices" class="form-check-input" value="choice4">
-                <input type="text" class="form-control" id="choice4Text">
-            </div>
+    <label for="radioButton" class="mt-5 ms-4 me-4">選択肢１</label>
+        <div class="container ms-3 me-3"> 
+            仮：formからの値を表示する（選択肢１）
         </div>
-    </div>
-    <p class="mt-2 ms-4 me-4 error">※答えをラジオボタンで選択してください。</p>
 
-    <div class="title mt-2 ms-4 me-4">
-        <label for="categorySelect" class="form-label">カテゴリー</label>
-        <select class="form-select" id="categorySelect" aria-label="Default select example">
-            <option selected>カテゴリーを選択してください</option>
-            <option value="1">カテゴリー1</option>
-            <option value="2">カテゴリー2</option>
-            <option value="3">カテゴリー3</option>
-        </select>
+        <label for="radioButton" class="ms-4 me-4">選択肢２</label>
+        <div class="container ms-3 me-3">
+            仮：formからの値を表示する（選択肢２）
+        </div>
+
+        <label for="radioButton" class="ms-4 me-4">選択肢３</label>
+        <div class="container ms-3 me-3">
+            仮：formからの値を表示する（選択肢３）
+        </div>
+
+        <label for="radioButton" class="ms-4 me-4">選択肢４</label><br>
+        <div class="container ms-3 me-3">
+            仮：formからの値を表示する（選択肢４）
+        </div>
+
+        <label for="radioButton" class="mt-3 ms-4 me-4">正解</label><br>
+        <div class="container ms-3 me-3">
+            仮：formからラジオボタンで選択した値が入る（正解）
+        </div>
+
+    <div class="title mt-3 ms-4 me-4">
+        <label for="categorySelect" class="form-label">カテゴリー</label><br>
+        仮：formからの値を表示する（カテゴリー）
     </div>
 
     <div class="title mt-4 ms-4 me-4">
-        <label for="explanation" class="form-label"><h5>解説</h5></label>
-        <textarea class="form-control" id="explanation" rows="5" style="resize: none;" placeholder="解説を入力してください (800字以内で)"></textarea>
+        <label for="explanation" class="form-label"><h5>解説</h5></label><br>
+        仮：formからの値を表示する（解説）
     </div>
 
     <div class="title mt-4 ms-4 me-4">
@@ -91,7 +88,7 @@
         <button class="btn btn-primary offset-2 col-4" onclick="confirmQuestion()">登録</button>
     </div>
 
-    <script>
+    <!-- <script>
         function goBack() {
             // 戻るボタンの処理をここに追加
             window.history.back();
@@ -117,7 +114,7 @@
                 }
             }
         }
-    </script>
+    </script> -->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
