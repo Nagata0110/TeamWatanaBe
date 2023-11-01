@@ -40,20 +40,26 @@
     </div>
     
         <div class="title mt-4 ms-4 me-4">
+            <?php
+                $pdo = new PDO('mysql:host=mysql202.phy.lolipop.lan;dbname=LAA1418434-aaa;charset=utf8','LAA1418434', '090414');
+                $sql = "SELECT * FROM quiz WHERE question_id = 1";
+                $ps = $pdo -> prepare($sql);
+                $ps -> execute();
+                foreach($ps -> fetchAll() as $row)
+            ?>
+        
             <h5>問題</h5>
-            <p class="statement">社外の人からの上司の田中部長への電話に対応するのに、田中部長を何と呼ぶのが正しいでしょうか？</p>
+            <p class="statement"><?php echo $row['question']?></p>
         </div>
         <div class="button mt-5 ms-4 me-4">
-            <input  type="radio" name="choices" id="select_radio1"><label for="select_radio1"><h5>田中部長</h5></label><br>
-            <input  type="radio" name="choices" id="select_radio2"><label for="select_radio2"><h5>田中</h5></label><br>
-            <input  type="radio" name="choices" id="select_radio3"><label for="select_radio3"><h5>部長さん</h5></label><br>
-            <input  type="radio" name="choices" id="select_radio4"><label for="select_radio4"><h5>田中さん</h5></label><br>
-            <button class="btn btn-secondary col-12">田中部長ああああああああああああああああああああああああああああああああああああああ</button>
-            <button class="btn btn-secondary mt-3  col-12">田中</button>
-            <button class="btn btn-secondary mt-3  col-12">部長さん</button>
-            <button class="btn btn-secondary mt-3  col-12">田中さん</button>
+            <form action="" method="post">
+                <button type="submit" class="btn btn-secondary col-12" name="choices" value="<?php echo $row['choices1'] ?>"><?php echo $row['choices1'] ?></button>
+                <button type="submit" class="btn btn-secondary col-12 mt-3" name="choices" value="<?php echo $row['choices2'] ?>"><?php echo $row['choices2'] ?></button>
+                <button type="submit" class="btn btn-secondary col-12 mt-3" name="choices" value="<?php echo $row['choices3'] ?>"><?php echo $row['choices3'] ?></button>
+                <button type="submit" class="btn btn-secondary col-12 mt-3" name="choices" value="<?php echo $row['choices4'] ?>"><?php echo $row['choices4'] ?></button>
+            </form>
         </div>
-        </div>
+        
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
