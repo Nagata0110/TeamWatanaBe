@@ -23,7 +23,7 @@
                         <a class="nav-link active" aria-current="page" href="#">ホーム</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">カテゴリー</a>
+                        <a class="nav-link active" aria-current="page" href="./subdivision.php">カテゴリー</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">問題作成</a>
@@ -39,18 +39,29 @@
         </nav>
     </div>
     <div class="category subdivision">
-        <form action="" method="post">
-            <div class="button mt-5 ms-4 me-4">
-                <button class="btn btn-secondary col-12" value="面接時の適切な服装" name="">面接時の適切な服装</button>
-                <button class="btn btn-secondary col-12 mt-3" value="入退室対応" name="">入退出対応</button>
-                <button class="btn btn-secondary col-12 mt-3" value="面接時の適切な服装" name="">面接時の適切な服装</button>
-                <button class="btn btn-secondary col-12 mt-3" value="面接時の適切な服装" name="">面接時の適切な服装</button>
-            </div>
+        <?php
+            $pdo = new PDO('mysql:host=mysql202.phy.lolipop.lan;dbname=LAA1418434-aaa;charset=utf8','LAA1418434', '090414');
+            $sql = "SELECT * FROM quiz ";
+            $ps = $pdo -> prepare($sql);
+            $ps -> execute();
+            foreach($ps -> fetchAll() as $row){
+                $id = $row['question_id'];
+        ?>
+        <form action="../problem/problem.php?id=<?php echo $id ?>" method="post">
+            <div class="button mt-2 ms-4 me-4">
+                <?php if($row['private'] === 1){ ?>
+                    <button type="submit" class="btn btn-secondary col-12 mt-3" value="<?php echo $row['quiz_title'] ?>" name="title"><?php echo $row['quiz_title']?></button>
+                <?php
+                }
+                ?>
         </form>
+        <?php
+            }
+        ?>
     </div>
 
     <div class="title mt-5 ms-4 me-4">
-        <button class="btn btn-primary offset-2 col-8">戻る</button>
+        <button class="btn btn-primary offset-2 col-8" onclick="location.href='../home/home.php'">戻る</button>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>

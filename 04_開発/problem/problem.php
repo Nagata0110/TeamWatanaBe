@@ -23,7 +23,7 @@
                         <a class="nav-link active" aria-current="page" href="#">ホーム</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">カテゴリー</a>
+                        <a class="nav-link active" aria-current="page" href="../subdivision/subdivision.php">カテゴリー</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">問題作成</a>
@@ -42,12 +42,12 @@
         <div class="title mt-4 ms-4 me-4">
             <?php
                 $pdo = new PDO('mysql:host=mysql202.phy.lolipop.lan;dbname=LAA1418434-aaa;charset=utf8','LAA1418434', '090414');
-                $sql = "SELECT * FROM quiz WHERE question_id = 1";
+                $sql = "SELECT * FROM quiz WHERE question_id = ?";
                 // sql 本番
                 //$sql = "SELECT * FROM quiz WHERE question_id = ?";
                 $ps = $pdo -> prepare($sql);
-                $ps -> execute();
-                //$ps -> execute([$_REQUEST['id']]);
+                //$ps -> execute();
+                $ps -> execute([$_REQUEST['id']]);
                 foreach($ps -> fetchAll() as $row){
                 //$id = $row['question_id'];
             ?>
