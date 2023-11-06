@@ -43,21 +43,30 @@
             <?php
                 $pdo = new PDO('mysql:host=mysql202.phy.lolipop.lan;dbname=LAA1418434-aaa;charset=utf8','LAA1418434', '090414');
                 $sql = "SELECT * FROM quiz WHERE question_id = 1";
+                // sql 本番
+                //$sql = "SELECT * FROM quiz WHERE question_id = ?";
                 $ps = $pdo -> prepare($sql);
                 $ps -> execute();
-                foreach($ps -> fetchAll() as $row)
+                //$ps -> execute([$_REQUEST['id']]);
+                foreach($ps -> fetchAll() as $row){
+                //$id = $row['question_id'];
             ?>
-        
+
             <h5>問題</h5>
-            <p class="statement"><?php echo $row['question']?></p>
+            <p class="statement"><?php echo nl2br ($row['question']) ?></p>
         </div>
         <div class="button mt-5 ms-4 me-4">
-            <form action="" method="post">
+            <!-- action=./answer.php -->
+            <form action="./answer.php" method="post">
+                <input type="hidden" value="<?php echo $row['question_id'] ?>" name="id">
                 <button type="submit" class="btn btn-secondary col-12" name="choices" value="<?php echo $row['choices1'] ?>"><?php echo $row['choices1'] ?></button>
                 <button type="submit" class="btn btn-secondary col-12 mt-3" name="choices" value="<?php echo $row['choices2'] ?>"><?php echo $row['choices2'] ?></button>
                 <button type="submit" class="btn btn-secondary col-12 mt-3" name="choices" value="<?php echo $row['choices3'] ?>"><?php echo $row['choices3'] ?></button>
                 <button type="submit" class="btn btn-secondary col-12 mt-3" name="choices" value="<?php echo $row['choices4'] ?>"><?php echo $row['choices4'] ?></button>
             </form>
+            <?php
+                } 
+            ?>
         </div>
         
     
