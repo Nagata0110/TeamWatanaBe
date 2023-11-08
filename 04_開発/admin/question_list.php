@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="shortcut icon" href="../img/OIG.4l.jpg">
-    <title>管理者問題リスト</title>
+    <title>管理者：申請一覧</title>
 </head>
 <body>
+    <?php
+        session_start();
+        if(isset($_SESSION['mail']) == false || isset($_SESSION['id']) == false){
+            header('Location:admin_login.php');
+        }
+    ?>
 <div>
-    <div class="sticky-top">
+<div class="sticky-top">
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,20 +26,23 @@
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">ホーム</a>
+                        <a class="nav-link active" aria-current="page" href="./admin_home.php">ホーム</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">申請一覧</a>
+                        <a class="nav-link active" aria-current="page" href="./question_list.php">申請一覧</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">カテゴリー登録</a>
+                        <a class="nav-link active" aria-current="page" href="./admin_category.php">カテゴリー登録</a>
                     </li>
                     </ul>
                     <!-- 検索フォーム -->
-                    <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="検索" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+                    <div class="d-flex">
+                        <p>管理者：<span><?php echo $_SESSION['mail'] ?><br><a href="./admin_logout.php" class="">ログアウト</a></span></p>
+                        
+                    <!-- <input class="form-control me-2" type="search" placeholder="検索" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button> -->
+                    </div>
+                    
                 </div>
             </div>
         </nav>
@@ -48,20 +56,30 @@
             <th class="text-center">削除</th>
         </tr>
         <tr>
-            <td class="text-center">1</td>
-            <td class="text-center title text-truncate">電話対応時の部長の呼び方</td>
+            <?php
+                $pdo = new PDO('mysql:host=mysql202.phy.lolipop.lan;dbname=LAA1418434-aaa;charset=utf8','LAA1418434', '090414');
+                $sql = "SELECT * FROM quiz WHERE private = 0";
+                $ps = $pdo -> prepare($sql);
+                $ps -> execute();
+                foreach($ps -> fetchAll() as $row){
+            ?>
+            <td class="text-center"><?php echo $row['question_id'] ?></td>
+            <td class="text-center title text-truncate"><?php echo $row['quiz_title'] ?></td>
             <td class="text-center">
-                <form method="get" action="">
-                    <input type="hidden" name="id" value="echo $row['question_id']">
+                <form method="get" action="./confirm_list.html">
+                    <input type="hidden" name="id" value="<?php echo $row['question_id'] ?>">
                     <input type="submit" value="詳細">
                 </form>
             </td>
             <td class="text-center">
                 <form method="post" action="">
-                    <input type="hidden" name="id" value="echo $row['question_id']">
+                    <input type="hidden" name="id" value="<?php echo $row['question_id'] ?>">
                     <input type="submit" value="削除">
                 </form>
             </td>
+            <?php
+                }
+            ?>
         </tr>
     </table>
 </div>

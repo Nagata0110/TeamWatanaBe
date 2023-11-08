@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="shortcut icon" href="../img/OIG.4l.jpg">
     <title>管理者ホーム</title>
 </head>
 <body>
+    <?php
+        session_start();
+        if(isset($_SESSION['mail']) == false || isset($_SESSION['id']) == false){
+            header('Location:admin_login.php');
+        }
+    ?>
     <div class="sticky-top">
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
@@ -20,20 +25,23 @@
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">ホーム</a>
+                        <a class="nav-link active" aria-current="page" href="./admin_home.php">ホーム</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">申請一覧</a>
+                        <a class="nav-link active" aria-current="page" href="./question_list.php">申請一覧</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">カテゴリー登録</a>
+                        <a class="nav-link active" aria-current="page" href="./admin_category.php">カテゴリー登録</a>
                     </li>
                     </ul>
                     <!-- 検索フォーム -->
-                    <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="検索" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+                    <div class="d-flex">
+                        <p>管理者：<span><?php echo $_SESSION['mail'] ?><br><a href="./admin_logout.php" class="">ログアウト</a></span></p>
+                        
+                    <!-- <input class="form-control me-2" type="search" placeholder="検索" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button> -->
+                    </div>
+                    
                 </div>
             </div>
         </nav>

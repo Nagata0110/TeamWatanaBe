@@ -9,8 +9,16 @@
     <title>管理者ログイン</title>
 </head>
 <body>
+
+    <?php
+        session_start();
+        if(isset($_SESSION['mail']) == true && isset($_SESSION['id']) == true){
+            header('Location:admin_home.php');
+        }
+    ?>
+
     <h3 class="mt-4 ms-4 me-4 text-center">管理者用<br>社会人ビジネスマナークイズ</h3>
-    <form action="./admin_home.html" method="post">
+    <form action="./admin_logincheck.php" method="post">
         <div class="title mt-4 ms-4 me-4">
             <label for="title" class="title">メールアドレス</label>
             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="メールアドレスを入力してください。" name="mail" required>
