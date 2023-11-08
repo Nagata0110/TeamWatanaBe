@@ -29,3 +29,7 @@
 .radioclass{
     font-size: 20px;
 }
+
+td.title{
+    max-width: 210px;
+}
