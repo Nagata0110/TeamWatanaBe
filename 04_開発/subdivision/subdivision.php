@@ -41,7 +41,7 @@
     <div class="category subdivision">
         <?php
             $pdo = new PDO('mysql:host=mysql202.phy.lolipop.lan;dbname=LAA1418434-aaa;charset=utf8','LAA1418434', '090414');
-            $sql = "SELECT * FROM quiz ";
+            $sql = "SELECT * FROM quiz AS q INNER JOIN quizcategorys AS qc ON q.question_id = qc.question_id WHERE qc.category_id = 1 ";
             $ps = $pdo -> prepare($sql);
             $ps -> execute();
             foreach($ps -> fetchAll() as $row){
