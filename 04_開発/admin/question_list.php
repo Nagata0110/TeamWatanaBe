@@ -62,11 +62,12 @@
                 $ps = $pdo -> prepare($sql);
                 $ps -> execute();
                 foreach($ps -> fetchAll() as $row){
+                    $id = $row['question_id'];
             ?>
             <td class="text-center"><?php echo $row['question_id'] ?></td>
             <td class="text-center title text-truncate"><?php echo $row['quiz_title'] ?></td>
             <td class="text-center">
-                <form method="get" action="./confirm_list.html">
+                <form method="get" action="./confirm_list.php">
                     <input type="hidden" name="id" value="<?php echo $row['question_id'] ?>">
                     <input type="submit" value="詳細">
                 </form>

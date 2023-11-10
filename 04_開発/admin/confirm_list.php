@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="shortcut icon" href="../img/OIG.4l.jpg">
-    <title>問題審査画面</title>
+    <title>管理者側：問題審査画面</title>
 </head>
 <body>
     <!-- ヘッダー -->
@@ -20,73 +20,99 @@
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">ホーム</a>
+                        <a class="nav-link active" aria-current="page" href="./admin_home.php">ホーム</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">申請一覧</a>
+                        <a class="nav-link active" aria-current="page" href="./question_list.php">申請一覧</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">カテゴリー登録</a>
+                        <a class="nav-link active" aria-current="page" href="./admin_category.php">カテゴリー登録</a>
                     </li>
                     </ul>
                     <!-- 検索フォーム -->
-                    <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="検索" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+                    <div class="d-flex">
+                        <p>管理者：<span><?php echo $_SESSION['mail'] ?><br><a href="./admin_logout.php" class="">ログアウト</a></span></p>
+                        
+                    <!-- <input class="form-control me-2" type="search" placeholder="検索" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button> -->
+                    </div>
+                    
                 </div>
             </div>
         </nav>
     </div>
-
+    <?php
+         session_start();
+         if(isset($_SESSION['mail']) == false || isset($_SESSION['id']) == false){
+             header('Location:admin_login.php');
+         }
+    ?>
+<form action="./confirm_complete.html"> 
+    <?php
+    $pdo = new PDO('mysql:host=mysql202.phy.lolipop.lan;dbname=LAA1418434-aaa;charset=utf8','LAA1418434', '090414');
+    $sql = "SELECT * FROM quiz AS q 
+            INNER JOIN quizcategorys AS qc ON q.question_id = qc.question_id 
+            INNER JOIN categorys AS c ON qc.category_id = c.category_id 
+            WHERE q.question_id = ?";
+    // AND categorys AS c INNER JOIN c.categorys_id = qc.categorys_id 
+    $ps = $pdo -> prepare($sql);
+    $ps -> execute([$_REQUEST['id']]);
+    $ps -> execute();
+    foreach($ps -> fetchAll() as $row){
+    ?>   
     <div class="title mt-4 ms-4 me-4">
         <label for="title"><h5>タイトル</h5></label><br>
-        仮：formからの値を表示する(タイトル)
+        
+        <b><?php echo $row['quiz_title'] ?></b>
     </div>
     <div class="title mt-4 ms-4 me-4">
         <label for="questionText" class="form-label"><h5>問題文</h5></label><br>
-        仮：formからの値を表示する（問題文）
+        <b><?php echo $row['question'] ?></b>
     </div>
 
     <label for="radioButton" class="mt-5 ms-4 me-4">選択肢１</label>
         <div class="container ms-3 me-3"> 
-            仮：formからの値を表示する（選択肢１）
+            <b><?php echo $row['choices1'] ?></b>
         </div>
 
         <label for="radioButton" class="ms-4 me-4">選択肢２</label>
         <div class="container ms-3 me-3">
-            仮：formからの値を表示する（選択肢２）
+            <b><?php echo $row['choices2'] ?></b>
         </div>
 
         <label for="radioButton" class="ms-4 me-4">選択肢３</label>
         <div class="container ms-3 me-3">
-            仮：formからの値を表示する（選択肢３）
+            <b><?php echo $row['choices3'] ?></b>
         </div>
 
         <label for="radioButton" class="ms-4 me-4">選択肢４</label><br>
         <div class="container ms-3 me-3">
-            仮：formからの値を表示する（選択肢４）
+            <b><?php echo $row['choices4'] ?></b>
         </div>
 
         <label for="radioButton" class="mt-3 ms-4 me-4">正解</label><br>
         <div class="container ms-3 me-3">
-            仮：formからラジオボタンで選択した値が入る（正解）
+            <b><?php echo $row['answer'] ?></b>
         </div>
 
     <div class="title mt-3 ms-4 me-4">
         <label for="categorySelect" class="form-label">カテゴリー</label><br>
-        仮：formからの値を表示する（カテゴリー）
+        <b><?php echo $row['category']?><b>
     </div>
 
     <div class="title mt-4 ms-4 me-4">
         <label for="explanation" class="form-label"><h5>解説</h5></label><br>
-        仮：formからの値を表示する（解説）
+        <b><?php echo $row['expl'] ?><b>
     </div>
 
     <div class="title mt-4 ms-4 me-4 mb-4">
-        <button class="btn btn-secondary offset-1 col-4" onclick="goBack()">戻る</button>
-        <button class="btn btn-primary offset-2 col-4" onclick="confirmQuestion()" value="1" name="private">公開</button>
+        <button type="button" class="btn btn-secondary offset-1 col-4" onclick="location.href='./question_list.php'">戻る</button>
+        <button type="submit" class="btn btn-primary offset-2 col-4" value="1" name="private" id="submit">公開</button>
     </div>
+    <?php
+         }
+    ?>
+</form>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -22,10 +22,10 @@
                         <a class="nav-link active" aria-current="page" href="./admin_home.php">ホーム</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">申請一覧</a>
+                        <a class="nav-link active" aria-current="page" href="./question_list.php">申請一覧</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">カテゴリー登録</a>
+                        <a class="nav-link active" aria-current="page" href="./admin_category.php">カテゴリー登録</a>
                     </li>
                     </ul>
                     <!-- 検索フォーム -->

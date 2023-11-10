@@ -49,8 +49,8 @@
     <h3 class="mt-4 ms-4 me-4 text-center">管理者用<br>社会人ビジネスマナークイズ</h3>
     <div class="title mt-5 ms-4 me-4">
         <button class="btn btn-warning offset-2 col-8" onclick="location.href='./question_list.php'">申請一覧</button>
-        <button class="btn btn-primary offset-2 col-8 mt-5" onclick="location.href='./home/home.php'">問題登録一覧</button>
-        <button class="btn btn-secondary offset-2 col-8 mt-5" onclick="location.href='./home/home.php'">カテゴリー登録</button>
+        <button class="btn btn-primary offset-2 col-8 mt-5" onclick="location.href='./registration_list.php'">問題登録一覧</button>
+        <button class="btn btn-secondary offset-2 col-8 mt-5" onclick="location.href='./admin_category.php'">カテゴリー登録</button>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
