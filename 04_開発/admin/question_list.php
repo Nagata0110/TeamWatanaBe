@@ -56,7 +56,7 @@
             <th class="text-center">削除</th>
         </tr>
         <tr>
-            <?php
+        <?php
                 $pdo = new PDO('mysql:host=mysql202.phy.lolipop.lan;dbname=LAA1418434-aaa;charset=utf8','LAA1418434', '090414');
                 $sql = "SELECT * FROM quiz WHERE private = 1";
                 $ps = $pdo -> prepare($sql);
@@ -78,10 +78,10 @@
                     <input type="submit" value="削除">
                 </form>
             </td>
-            <?php
-                }
-            ?>
         </tr>
+        <?php
+                }
+        ?>
     </table>
 </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
