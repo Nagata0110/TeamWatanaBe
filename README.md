@@ -1,1 +1,4 @@
-# TeamWatanaBe
+# TeamWatanaBe　ビジネスマナークイズ
+
+リーダー：渡邊
+メンバー：桑野、永田、松崎
