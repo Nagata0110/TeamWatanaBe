@@ -58,7 +58,7 @@
         <tr>
             <?php
                 $pdo = new PDO('mysql:host=mysql202.phy.lolipop.lan;dbname=LAA1418434-aaa;charset=utf8','LAA1418434', '090414');
-                $sql = "SELECT * FROM quiz WHERE private = 0";
+                $sql = "SELECT * FROM quiz WHERE private = 1";
                 $ps = $pdo -> prepare($sql);
                 $ps -> execute();
                 foreach($ps -> fetchAll() as $row){
@@ -73,7 +73,7 @@
                 </form>
             </td>
             <td class="text-center">
-                <form method="post" action="">
+                <form method="post" action="./question_delete.php">
                     <input type="hidden" name="id" value="<?php echo $row['question_id'] ?>">
                     <input type="submit" value="削除">
                 </form>
