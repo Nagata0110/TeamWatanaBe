@@ -48,6 +48,14 @@
         </nav>
     </div>
     <h5 class="mt-4 ms-4 me-4">申請一覧</h5>
+    <?php
+    $pdo = new PDO('mysql:host=mysql202.phy.lolipop.lan;dbname=LAA1418434-aaa;charset=utf8','LAA1418434', '090414');
+    $sql = "SELECT * FROM quiz WHERE private = 1";
+    $ps = $pdo -> prepare($sql);
+    $ps -> execute();
+    $selectArray = $ps -> fetchAll();
+    if(count($selectArray) != 0){
+    ?>
     <table class="table table-striped">
         <tr>
             <th class="text-center">ID</th>
@@ -57,11 +65,8 @@
         </tr>
         <tr>
         <?php
-                $pdo = new PDO('mysql:host=mysql202.phy.lolipop.lan;dbname=LAA1418434-aaa;charset=utf8','LAA1418434', '090414');
-                $sql = "SELECT * FROM quiz WHERE private = 1";
-                $ps = $pdo -> prepare($sql);
-                $ps -> execute();
-                foreach($ps -> fetchAll() as $row){
+                
+                foreach($selectArray as $row){
                     $id = $row['question_id'];
             ?>
             <td class="text-center"><?php echo $row['question_id'] ?></td>
@@ -83,6 +88,13 @@
                 }
         ?>
     </table>
+    <?php
+    }else{
+    ?>
+    <h2 class="mt-4 ms-4 me-4">申請された問題がありません。</h2>
+    <?php
+    }
+    ?>
 </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
