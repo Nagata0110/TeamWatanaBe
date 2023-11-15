@@ -38,8 +38,10 @@
             </div>
         </nav>
     </div>
-
-<form action="" method="post">
+<?php
+    $pdo = new PDO('mysql:host=mysql202.phy.lolipop.lan;dbname=LAA1418434-aaa;charset=utf8','LAA1418434', '090414');
+?>
+<form action="./question_confirm.php" method="post">
     <div class="title mt-4 ms-4 me-4">
         <label for="title" class="title"><h5>タイトル</h5></label>
         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="タイトルを入力してください。" name="title">
@@ -51,36 +53,46 @@
         
         <label for="radioButton" class="mt-5 ms-4 me-4">選択肢１</label>
         <div class="container ms-4 me-4">
-            <input type="radio" id="choices1" name="choices1" class="radio-button" value="">
+            <input type="radio" id="choices" name="choices" class="radio-button">
             <input type="text" class="form-control" id="exampleFormControlInput1" name="choices1">
         </div>
 
         <label for="radioButton" class="ms-4 me-4">選択肢２</label>
         <div class="container ms-4 me-4">
-            <input type="radio" id="choices1" name="choices1" class="radio-button" value="">
+            <input type="radio" id="choices" name="choices" class="radio-button">
             <input type="text" class="form-control" id="exampleFormControlInput1" name="choices2">
         </div>
 
         <label for="radioButton" class="ms-4 me-4">選択肢３</label>
         <div class="container ms-4 me-4">
-            <input type="radio" id="choices1" name="choices1" class="radio-button" value="">
+            <input type="radio" id="choices" name="choices" class="radio-button">
             <input type="text" class="form-control" id="exampleFormControlInput1" name="choices3">
         </div>
 
         <label for="radioButton" class="ms-4 me-4">選択肢４</label>
         <div class="container ms-4 me-4">
-            <input type="radio" id="choices1" name="choices1" class="radio-button" value="">
+            <input type="radio" id="choices" name="choices" class="radio-button">
             <input type="text" class="form-control" id="exampleFormControlInput1" name="choices4">
         </div>
         <p class="mt-2 ms-4 me-4 error">※答えをラジオボタンで選択してください。</p>
 
         <div class="title mt-2 ms-4 me-4">
             <label for="exampleFormControlTextarea1" class="form-label">カテゴリー</label>
-            <select class="form-select" aria-label="Default select example">
+            <select class="form-select" aria-label="Default select example" name="category">
                 <option selected>カテゴリーを選択してください。</option>
-                <option value="1">１</option>
-                <option value="2">２</option>
-                <option value="3">３</option>
+                <?php
+                    $sql = "SELECT * FROM categorys";
+                    $ps = $pdo -> prepare($sql);
+                    $ps -> execute();
+                    foreach($ps -> fetchAll() as $row){
+                ?>
+                    
+                    <option  value="<?php echo $row['category'] ?>"><?php echo $row['category'] ?></option>
+                    
+                <?php
+                    }
+                ?>
+                
             </select>
         </div>
 
@@ -88,7 +100,7 @@
 
         <div class="title mt-4 ms-4 me-4">
             <label for="exampleFormControlTextarea1" class="form-label"><h5>解説</h5></label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" style="resize: none;" placeholder="解説を入力してください。(800字以内で)"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" style="resize: none;" placeholder="解説を入力してください。(800字以内で)" name="expl"></textarea>
         </div>
 
         <div class="title mt-4 ms-4 me-4">
