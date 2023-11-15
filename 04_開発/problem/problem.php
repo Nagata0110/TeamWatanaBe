@@ -20,13 +20,10 @@
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">ホーム</a>
+                        <a class="nav-link active" aria-current="page" href="../home/home.php">ホーム</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../subdivision/subdivision.php">カテゴリー</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">問題作成</a>
+                        <a class="nav-link active" aria-current="page" href="../create/question_create.php">問題作成</a>
                     </li>
                     </ul>
                     <!-- 検索フォーム -->

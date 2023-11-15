@@ -20,13 +20,10 @@
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">ホーム</a>
+                        <a class="nav-link active" aria-current="page" href="../home/home.php">ホーム</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./subdivision.php">カテゴリー</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">問題作成</a>
+                        <a class="nav-link active" aria-current="page" href="../create/question_create.php">問題作成</a>
                     </li>
                     </ul>
                     <!-- 検索フォーム -->
@@ -41,7 +38,7 @@
     <div class="category subdivision">
         <?php
             $pdo = new PDO('mysql:host=mysql202.phy.lolipop.lan;dbname=LAA1418434-aaa;charset=utf8','LAA1418434', '090414');
-            $sql = "SELECT * FROM quiz AS q INNER JOIN quizcategorys AS qc ON q.question_id = qc.question_id WHERE qc.category_id = 1 ";
+            $sql = "SELECT * FROM quiz AS q INNER JOIN quizcategorys AS qc ON q.question_id = qc.question_id WHERE qc.category_id = 2 ";
             $ps = $pdo -> prepare($sql);
             $ps -> execute();
             foreach($ps -> fetchAll() as $row){
@@ -49,7 +46,7 @@
         ?>
         <form action="../problem/problem.php?id=<?php echo $id ?>" method="post">
             <div class="button mt-2 ms-4 me-4">
-                <?php if($row['private'] === 1){ ?>
+                <?php if($row['private'] === 0){ ?>
                     <button type="submit" class="btn btn-secondary col-12 mt-3" value="<?php echo $row['quiz_title'] ?>" name="title"><?php echo $row['quiz_title']?></button>
                 <?php
                 }
