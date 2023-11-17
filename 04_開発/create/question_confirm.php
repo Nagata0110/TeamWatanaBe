@@ -69,12 +69,45 @@
 
         <label for="radioButton" class="mt-3 ms-4 me-4">正解</label><br>
         <div class="container ms-3 me-3">
-        <h5><?php echo $_POST['answer'] ?></h5>
+            <?php
+                
+                switch($_POST['answer']){
+                    case 1;
+                    echo "<h5>".$_POST['choice1']."</h5>";
+                    ?>
+                    <input type="hidden"  value="$_POST['choice1']" name="answer">
+                    <?php
+                    break;
+                    case 2;
+                    echo "<h5>".$_POST['choice2']."</h5>";
+                    break;
+                    case 3;
+                    echo "<h5>".$_POST['choice3']."</h5>";
+                    break;
+                    case 4;
+                    echo "<h5>".$_POST['choice4']."</h5>";
+                    break;
+                }
+            ?>
         </div>
 
     <div class="title mt-3 ms-4 me-4">
+        <?php
+            $sql = "SELECT * FROM categorys WHERE category = ?";
+            $ps = $pdo -> prepare($sql);
+            $ps -> bindValue(1,$_POST['category'],PDO::PARAM_STR);
+            $ps -> execute();
+            $searchArray = $ps -> fetchAll();
+        ?>
         <label for="categorySelect" class="form-label">カテゴリー</label><br>
         <h5><?php echo $_POST['category'] ?></h5>
+        <?php
+            foreach($searchArray as $row){
+        ?>
+        <input type="hidden" name="category" value="<?php echo $row['category_id']?>">
+        <?php
+            }
+        ?>
     </div>
 
     <div class="title mt-4 ms-4 me-4">
@@ -84,7 +117,7 @@
 
     <div class="title mt-4 ms-4 me-4">
         <button class="btn btn-secondary offset-1 col-4" onclick="goBack()">修正</button>
-        <button class="btn btn-primary offset-2 col-4" onclick="confirmQuestion()">登録</button>
+        <button type="submit"class="btn btn-primary offset-2 col-4">登録</button>
     </div>
 
     <!-- <script>
