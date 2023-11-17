@@ -53,25 +53,25 @@
         
         <label for="radioButton" class="mt-5 ms-4 me-4">選択肢１</label>
         <div class="container ms-4 me-4">
-            <input type="radio" id="choices" name="choices" class="radio-button">
+            <input type="radio" id="choices" name="answer" class="radio-button">
             <input type="text" class="form-control" id="exampleFormControlInput1" name="choices1">
         </div>
 
         <label for="radioButton" class="ms-4 me-4">選択肢２</label>
         <div class="container ms-4 me-4">
-            <input type="radio" id="choices" name="choices" class="radio-button">
+            <input type="radio" id="choices" name="answer" class="radio-button">
             <input type="text" class="form-control" id="exampleFormControlInput1" name="choices2">
         </div>
 
         <label for="radioButton" class="ms-4 me-4">選択肢３</label>
         <div class="container ms-4 me-4">
-            <input type="radio" id="choices" name="choices" class="radio-button">
+            <input type="radio" id="choices" name="answer" class="radio-button">
             <input type="text" class="form-control" id="exampleFormControlInput1" name="choices3">
         </div>
 
         <label for="radioButton" class="ms-4 me-4">選択肢４</label>
         <div class="container ms-4 me-4">
-            <input type="radio" id="choices" name="choices" class="radio-button">
+            <input type="radio" id="choices" name="answer" class="radio-button">
             <input type="text" class="form-control" id="exampleFormControlInput1" name="choices4">
         </div>
         <p class="mt-2 ms-4 me-4 error">※答えをラジオボタンで選択してください。</p>
