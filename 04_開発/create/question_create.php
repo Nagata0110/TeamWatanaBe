@@ -23,9 +23,6 @@
                         <a class="nav-link active" aria-current="page" href="#">ホーム</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">カテゴリー</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">問題作成</a>
                     </li>
                     </ul>
