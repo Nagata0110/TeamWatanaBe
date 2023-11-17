@@ -23,9 +23,6 @@
                             <a class="nav-link active" aria-current="page" href="#">ホーム</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">カテゴリー</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">問題作成</a>
                         </li>
                     </ul>
@@ -38,49 +35,51 @@
             </div>
         </nav>
     </div>
-
+    <?php
+        $pdo = new PDO('mysql:host=mysql202.phy.lolipop.lan;dbname=LAA1418434-aaa;charset=utf8','LAA1418434', '090414');
+    ?>
     <div class="title mt-4 ms-4 me-4">
         <label for="title"><h5>タイトル</h5></label><br>
-        仮：formからの値を表示する(タイトル)
+        <h3><?php echo $_POST['title'] ?></h3>
     </div>
     <div class="title mt-4 ms-4 me-4">
         <label for="questionText" class="form-label"><h5>問題文</h5></label><br>
-        仮：formからの値を表示する（問題文）
+        <h4><?php echo $_POST['question'] ?></h4>
     </div>
 
     <label for="radioButton" class="mt-5 ms-4 me-4">選択肢１</label>
         <div class="container ms-3 me-3"> 
-            仮：formからの値を表示する（選択肢１）
+        <h5><?php echo $_POST['choice1'] ?></h5>
         </div>
 
         <label for="radioButton" class="ms-4 me-4">選択肢２</label>
         <div class="container ms-3 me-3">
-            仮：formからの値を表示する（選択肢２）
+        <h5><?php echo $_POST['choice2'] ?></h5>
         </div>
 
         <label for="radioButton" class="ms-4 me-4">選択肢３</label>
         <div class="container ms-3 me-3">
-            仮：formからの値を表示する（選択肢３）
+        <h5><?php echo $_POST['choice3'] ?></h5>
         </div>
 
         <label for="radioButton" class="ms-4 me-4">選択肢４</label><br>
         <div class="container ms-3 me-3">
-            仮：formからの値を表示する（選択肢４）
+        <h5><?php echo $_POST['choice4'] ?></h5>
         </div>
 
         <label for="radioButton" class="mt-3 ms-4 me-4">正解</label><br>
         <div class="container ms-3 me-3">
-            仮：formからラジオボタンで選択した値が入る（正解）
+        <h5><?php echo $_POST['answer'] ?></h5>
         </div>
 
     <div class="title mt-3 ms-4 me-4">
         <label for="categorySelect" class="form-label">カテゴリー</label><br>
-        仮：formからの値を表示する（カテゴリー）
+        <h5><?php echo $_POST['category'] ?></h5>
     </div>
 
     <div class="title mt-4 ms-4 me-4">
         <label for="explanation" class="form-label"><h5>解説</h5></label><br>
-        仮：formからの値を表示する（解説）
+        <h5><?php echo $_POST['expl'] ?></h5>
     </div>
 
     <div class="title mt-4 ms-4 me-4">

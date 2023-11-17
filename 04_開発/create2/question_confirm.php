@@ -14,14 +14,14 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // フォームからデータを取得
         $title = $_POST["title"];
-        $questionText = $_POST["questionText"];
+        $questionText = $_POST["question"];
         $choice1 = $_POST["choice1"];
         $choice2 = $_POST["choice2"];
         $choice3 = $_POST["choice3"];
         $choice4 = $_POST["choice4"];
-        $correctAnswer = $_POST["correctAnswer"];
+        $answer = $_POST["answer"];
         $category = $_POST["category"];
-        $explanation = $_POST["explanation"];
+        $expl = $_POST["expl"];
     } 
     ?>
 
