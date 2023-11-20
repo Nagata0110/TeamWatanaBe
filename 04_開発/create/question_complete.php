@@ -20,13 +20,10 @@
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">ホーム</a>
+                            <a class="nav-link active" aria-current="page" href="../home/home.php">ホーム</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">カテゴリー</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">問題作成</a>
+                            <a class="nav-link active" aria-current="page" href="../create/question_create.php">問題作成</a>
                         </li>
                     </ul>
                 </div>
@@ -35,7 +32,7 @@
     </div>
     <?php
         $pdo = new PDO('mysql:host=mysql202.phy.lolipop.lan;dbname=LAA1418434-aaa;charset=utf8','LAA1418434', '090414');
-        $sql = "INSERT INTO quiz(question, choice1, choice2, choice3, choice4, answer, expl, quiz_title, private) VALUES(?,?,?,?,?,?,?,?,?)";
+        $sql = "INSERT INTO quiz(question, choices1, choices2, choices3, choices4, answer, expl, quiz_title, private) VALUES(?,?,?,?,?,?,?,?,?)";
         $ps = $pdo->prepare($sql);
         $ps->bindValue(1, $_POST['question'], PDO::PARAM_STR);
         $ps->bindValue(2, $_POST['choice1'], PDO::PARAM_STR);
@@ -44,7 +41,7 @@
         $ps->bindValue(5, $_POST['choice4'], PDO::PARAM_STR);
         $ps->bindValue(6, $_POST['answer'], PDO::PARAM_STR);
         $ps->bindValue(7, $_POST['expl'], PDO::PARAM_STR);
-        $ps->bindValue(8, $_POST['quiz_title'], PDO::PARAM_STR);
+        $ps->bindValue(8, $_POST['title'], PDO::PARAM_STR);
         $ps->bindValue(9, 1, PDO::PARAM_INT);
         $ps->execute();
 
@@ -61,9 +58,9 @@
             $insertps->execute();
         }
     ?>
-    <div class="text-center">
+    <div class="text-center md-3">
         <h2 class="mt-5">問題の登録申請を行いました。</h2>
-        <button class="mt-5 btn btn-primary" onclick="location.href='開発するときはパス指定で入れる。例：./question_create.htmlのように指定する'">ホームへ</button>
+        <button class="mt-5 btn btn-primary" onclick="location.href='./question_create.php'">問題登録へ</button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
