@@ -63,8 +63,17 @@
         <p><?php echo $row['expl'] ?></p>
     </div>
             <div class="title mt-4 ms-4 me-4">
-                <button class="btn btn-secondary offset-1 col-4">ホームへ</button>
-                <button class="btn btn-primary offset-2 col-4">次へ</button>
+                <form action="../subdivision/subdivision.php">
+                    <button class="btn btn-secondary offset-4 col-4" type="submit">カテゴリー</button>
+                    <!--上が上手く動かなかった時用
+                    <button class="btn btn-secondary offset-1 col-4" onclick="redirectToQuestionSelection()">問題選択へ</button>
+                    <script>
+                function redirectToQuestionSelection() {
+                window.location.href = "../subdivision/subdivision.php";
+                    }
+                </script>   
+                -->
+                </form>
             </div>
     <?php
         }
