@@ -33,15 +33,17 @@
     </div>
     <?php
         $pdo = new PDO('mysql:host=mysql202.phy.lolipop.lan;dbname=LAA1418434-aaa;charset=utf8','LAA1418434', '090414');
-        $sql = "SELECT * FROM quiz WHERE question_id = ?";
+        $sql = "SELECT * FROM quiz AS q 
+                INNER JOIN quizcategorys AS qc ON q.question_id = qc.question_id 
+                INNER JOIN categorys AS c ON qc.category_id = c.category_id 
+                WHERE q.question_id = ?;";
         $ps = $pdo -> prepare($sql);
         $ps -> bindValue(1,$_POST['id'],PDO::PARAM_INT);
         $ps -> execute();
 
-        $selectSql = "SELECT * FROM categorys";
-        $selectps = $pdo -> prepare($selectSql);
-        $selectps -> execute();
         foreach($ps -> fetchAll() as $row){
+            if($row['question_id'] == $_POST['id']){
+
     ?>
     <div class="title ms-4 me-4">
         <?php
@@ -62,14 +64,14 @@
         <p><?php echo nl2br($row['expl']) ?></p>
     </div>
             <div class="title mt-4 ms-4 me-4">
-                <?php
-                foreach($selectps -> fetchAll() as $row){
+            <?php
+                
                     $id = $row['category_id'];
-                }
-                ?>
+               ?>
                 <form action="../subdivision/subdivision.php?id=<?php echo $id ?>" method="post">
                     <button class="btn btn-secondary offset-4 col-4" type="submit">カテゴリー</button>
                 </form>
+                
                     <!--上が上手く動かなかった時用
                     <button class="btn btn-secondary offset-1 col-4" onclick="redirectToQuestionSelection()">問題選択へ</button>
                     <script>
@@ -80,7 +82,9 @@
                 -->
             </div>
     <?php
+        break;
         }
+    }
     ?>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
