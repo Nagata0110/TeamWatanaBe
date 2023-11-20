@@ -41,42 +41,42 @@
 <form action="./question_confirm.php" method="post">
     <div class="title mt-4 ms-4 me-4">
         <label for="title" class="title"><h5>タイトル</h5></label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="タイトルを入力してください。" name="title">
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="タイトルを入力してください。" name="title" required>
     </div>
         <div class="title mt-4 ms-4 me-4">
             <label for="exampleFormControlTextarea1" class="form-label"><h5>問題文</h5></label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"  style="resize: none;" placeholder="問題文を入力してください。(800字以内で)" name="question"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"  style="resize: none;" placeholder="問題文を入力してください。(800字以内で)" name="question" required></textarea>
         </div>
         
         <label for="radioButton" class="mt-5 ms-4 me-4">選択肢１</label>
         <div class="container ms-4 me-4">
-            <input type="radio" id="choices" name="answer" class="radio-button" value="1">
-            <input type="text" class="form-control" id="exampleFormControlInput1" name="choice1">
+            <input type="radio" id="choices" name="answer" class="radio-button" value="1" required>
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="choice1" required>
         </div>
 
         <label for="radioButton" class="ms-4 me-4">選択肢２</label>
         <div class="container ms-4 me-4">
-            <input type="radio" id="choices" name="answer" class="radio-button" value="2">
-            <input type="text" class="form-control" id="exampleFormControlInput1" name="choice2">
+            <input type="radio" id="choices" name="answer" class="radio-button" value="2" required>
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="choice2" required>
         </div>
 
         <label for="radioButton" class="ms-4 me-4">選択肢３</label>
         <div class="container ms-4 me-4">
-            <input type="radio" id="choices" name="answer" class="radio-button" value="3">
-            <input type="text" class="form-control" id="exampleFormControlInput1" name="choice3">
+            <input type="radio" id="choices" name="answer" class="radio-button" value="3" required>
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="choice3" required>
         </div>
 
         <label for="radioButton" class="ms-4 me-4">選択肢４</label>
         <div class="container ms-4 me-4">
-            <input type="radio" id="choices" name="answer" class="radio-button" value="4">
-            <input type="text" class="form-control" id="exampleFormControlInput1" name="choice4">
+            <input type="radio" id="choices" name="answer" class="radio-button" value="4"required>
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="choice4" required>
         </div>
         <p class="mt-2 ms-4 me-4 error">※答えをラジオボタンで選択してください。</p>
 
         <div class="title mt-2 ms-4 me-4">
             <label for="exampleFormControlTextarea1" class="form-label">カテゴリー</label>
-            <select class="form-select" aria-label="Default select example" name="category">
-                <option selected>カテゴリーを選択してください。</option>
+            <select class="form-select" aria-label="Default select example" name="category" required>
+                <option hidden>カテゴリーを選択してください。</option>
                 <?php
                     $sql = "SELECT * FROM categorys";
                     $ps = $pdo -> prepare($sql);
@@ -97,11 +97,11 @@
 
         <div class="title mt-4 ms-4 me-4">
             <label for="exampleFormControlTextarea1" class="form-label"><h5>解説</h5></label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" style="resize: none;" placeholder="解説を入力してください。(800字以内で)" name="expl"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" style="resize: none;" placeholder="解説を入力してください。(800字以内で)" name="expl" required></textarea>
         </div>
 
         <div class="title mt-4 ms-4 me-4">
-            <button class="btn btn-secondary offset-1 col-4">戻る</button>
+            <button class="btn btn-secondary offset-1 col-4" type="button" onclick="history.back()">戻る</button>
             <button class="btn btn-primary offset-2 col-4" type="submit">確認</button>
         </div>
 </form>
