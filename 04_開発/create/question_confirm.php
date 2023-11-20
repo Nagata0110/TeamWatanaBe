@@ -48,7 +48,7 @@
     <div class="title mt-4 ms-4 me-4">
         <label for="questionText" class="form-label"><h5>問題文</h5></label><br>
         <h4><?php echo $_POST['question'] ?></h4>
-        <input type="hidden" name="question" value="<?php echo $_POST['question'] ?>">
+        <input type="hidden" name="question" value="<?php echo nl2br($_POST['question']) ?>">
     </div>
 
     <label for="radioButton" class="mt-5 ms-4 me-4">選択肢１</label>
@@ -129,7 +129,7 @@
 
     <div class="title mt-4 ms-4 me-4">
         <label for="explanation" class="form-label"><h5>解説</h5></label><br>
-        <h5><?php echo $_POST['expl'] ?></h5>
+        <h5><?php echo nl2br($_POST['expl']) ?></h5>
         <input type="hidden" name="expl" value="<?php echo $_POST['expl'] ?>">
     </div>
 
