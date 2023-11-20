@@ -25,12 +25,7 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="../create/question_create.php">問題作成</a>
                     </li>
-                    </ul>
-                    <!-- 検索フォーム -->
-                    <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="検索" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+                    </ul>                    
                 </div>
             </div>
         </nav>

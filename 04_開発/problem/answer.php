@@ -64,7 +64,7 @@
         <p class="mt-4 statement">貴方の解答： <?php echo $_POST['choices'] ?></p>
         <p class="statement text-danger">正解： <?php echo $row['answer'] ?></p>
         <h5 class="text-primary">解説</h5>
-        <p><?php echo $row['expl'] ?></p>
+        <p><?php echo nl2br($row['expl']) ?></p>
     </div>
             <div class="title mt-4 ms-4 me-4">
                 <?php
