@@ -38,7 +38,7 @@
     <?php
         $pdo = new PDO('mysql:host=mysql202.phy.lolipop.lan;dbname=LAA1418434-aaa;charset=utf8','LAA1418434', '090414');
     ?>
-    <form action="./question_complete.php">
+    <form action="./question_complete.php" method="post">
     <div class="title mt-4 ms-4 me-4">
         <label for="title"><h5>タイトル</h5></label><br>
         <h3><?php echo $_POST['title'] ?></h3>
