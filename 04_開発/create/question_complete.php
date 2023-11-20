@@ -38,6 +38,34 @@
             </div>
         </nav>
     </div>
+    <?php
+        $pdo = new PDO('mysql:host=mysql202.phy.lolipop.lan;dbname=LAA1418434-aaa;charset=utf8','LAA1418434', '090414');
+        $sql = "INSERT INTO quiz(question, choice1, choice2, choice3, choice4, answer, expl, quiz_title, private) VALUES(?,?,?,?,?,?,?,?,?)";
+        $ps = $pdo->prepare($sql);
+        $ps->bindValue(1, $_POST['question'], PDO::PARAM_STR);
+        $ps->bindValue(2, $_POST['choice1'], PDO::PARAM_STR);
+        $ps->bindValue(3, $_POST['choice2'], PDO::PARAM_STR);
+        $ps->bindValue(4, $_POST['choice3'], PDO::PARAM_STR);
+        $ps->bindValue(5, $_POST['choice4'], PDO::PARAM_STR);
+        $ps->bindValue(6, $_POST['answer'], PDO::PARAM_STR);
+        $ps->bindValue(7, $_POST['expl'], PDO::PARAM_STR);
+        $ps->bindValue(8, $_POST['quiz_title'], PDO::PARAM_STR);
+        $ps->bindValue(9, 1, PDO::PARAM_INT);
+        $ps->execute();
+
+        $selectSql = "SELECT question_id FROM quiz WHERE question = ?";
+        $selectps = $pdo->prepare($selectSql);
+        $selectps->bindValue(1, $_POST['question'], PDO::PARAM_STR);
+        $selectps->execute();
+        
+        foreach($selectps -> fetchAll() as $row){
+            $insertSql = "INSERT INTO quizcategorys(question_id, category_id) VALUES(?,?)";
+            $insertps = $pdo->prepare($insertSql);
+            $insertps->bindValue(1, $row['question_id'], PDO::PARAM_INT);
+            $insertps->bindValue(2, $_POST['category'], PDO::PARAM_INT);
+            $insertps->execute();
+        }
+    ?>
     <div class="text-center">
         <h2 class="mt-5">問題の登録申請を行いました。</h2>
         <button class="mt-5 btn btn-primary" onclick="location.href='開発するときはパス指定で入れる。例：./question_create.htmlのように指定する'">ホームへ</button>

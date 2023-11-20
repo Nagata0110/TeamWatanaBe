@@ -20,10 +20,10 @@
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">ホーム</a>
+                            <a class="nav-link active" aria-current="page" href="../home/home.php">ホーム</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">問題作成</a>
+                            <a class="nav-link active" aria-current="page" href="./question_create.php">問題作成</a>
                         </li>
                     </ul>
                     <!-- 検索フォーム -->
@@ -38,33 +38,41 @@
     <?php
         $pdo = new PDO('mysql:host=mysql202.phy.lolipop.lan;dbname=LAA1418434-aaa;charset=utf8','LAA1418434', '090414');
     ?>
+    <form action="./question_complete.php">
     <div class="title mt-4 ms-4 me-4">
         <label for="title"><h5>タイトル</h5></label><br>
         <h3><?php echo $_POST['title'] ?></h3>
+        <input type="hidden" name="title" value="<?php echo $_POST['title'] ?>">
     </div>
+
     <div class="title mt-4 ms-4 me-4">
         <label for="questionText" class="form-label"><h5>問題文</h5></label><br>
         <h4><?php echo $_POST['question'] ?></h4>
+        <input type="hidden" name="question" value="<?php echo $_POST['question'] ?>">
     </div>
 
     <label for="radioButton" class="mt-5 ms-4 me-4">選択肢１</label>
         <div class="container ms-3 me-3"> 
         <h5><?php echo $_POST['choice1'] ?></h5>
+        <input type="hidden" name="choice1" value="<?php echo $_POST['choice1'] ?>">
         </div>
 
         <label for="radioButton" class="ms-4 me-4">選択肢２</label>
         <div class="container ms-3 me-3">
         <h5><?php echo $_POST['choice2'] ?></h5>
+        <input type="hidden" name="choice2" value="<?php echo $_POST['choice2'] ?>">
         </div>
 
         <label for="radioButton" class="ms-4 me-4">選択肢３</label>
         <div class="container ms-3 me-3">
         <h5><?php echo $_POST['choice3'] ?></h5>
+        <input type="hidden" name="choice3" value="<?php echo $_POST['choice3'] ?>">
         </div>
 
         <label for="radioButton" class="ms-4 me-4">選択肢４</label><br>
         <div class="container ms-3 me-3">
         <h5><?php echo $_POST['choice4'] ?></h5>
+        <input type="hidden" name="choice4" value="<?php echo $_POST['choice4'] ?>">
         </div>
 
         <label for="radioButton" class="mt-3 ms-4 me-4">正解</label><br>
@@ -75,17 +83,26 @@
                     case 1;
                     echo "<h5>".$_POST['choice1']."</h5>";
                     ?>
-                    <input type="hidden"  value="$_POST['choice1']" name="answer">
+                    <input type="hidden"  value="<?php echo $_POST['choice1'] ?>" name="answer">
                     <?php
                     break;
                     case 2;
                     echo "<h5>".$_POST['choice2']."</h5>";
+                    ?>
+                    <input type="hidden"  value="<?php echo $_POST['choice2'] ?>" name="answer">
+                    <?php
                     break;
                     case 3;
                     echo "<h5>".$_POST['choice3']."</h5>";
+                    ?>
+                    <input type="hidden"  value="<?php echo $_POST['choice3'] ?>" name="answer">
+                    <?php
                     break;
                     case 4;
                     echo "<h5>".$_POST['choice4']."</h5>";
+                    ?>
+                    <input type="hidden"  value="<?php echo $_POST['choice4'] ?>" name="answer">
+                    <?php
                     break;
                 }
             ?>
@@ -113,12 +130,14 @@
     <div class="title mt-4 ms-4 me-4">
         <label for="explanation" class="form-label"><h5>解説</h5></label><br>
         <h5><?php echo $_POST['expl'] ?></h5>
+        <input type="hidden" name="expl" value="<?php echo $_POST['expl'] ?>">
     </div>
 
     <div class="title mt-4 ms-4 me-4">
-        <button class="btn btn-secondary offset-1 col-4" onclick="goBack()">修正</button>
+        <button type="button" class="btn btn-secondary offset-1 col-4" onclick="history.back()">修正</button>
         <button type="submit"class="btn btn-primary offset-2 col-4">登録</button>
     </div>
+        </form>
 
     <!-- <script>
         function goBack() {
