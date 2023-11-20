@@ -9,6 +9,7 @@
     <title>ホーム画面</title>
 </head>
 <body>
+<div class="overflow-hidden">
     <!-- ヘッダー -->
     <div class="sticky-top">
         <nav class="navbar navbar-expand-lg">
@@ -35,7 +36,6 @@
             </div>
         </nav>
     </div>
-<div>
     <?php
     $pdo = new PDO('mysql:host=mysql202.phy.lolipop.lan;dbname=LAA1418434-aaa;charset=utf8','LAA1418434', '090414');
     $sql = "SELECT * FROM quiz WHERE question_id = ?";
@@ -45,8 +45,7 @@
     ?>
 
     <!-- 画像挿入 -->
-   
-        <div class="row mt-5">
+   <div class="row mt-5">
             <?php 
                 foreach ($ps -> fetchAll() as $row ) { 
                     $id = $row['category_id']
@@ -63,6 +62,7 @@
             </div>
             <?php } ?>
         </div>
+        
 </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>

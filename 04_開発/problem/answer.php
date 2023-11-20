@@ -42,6 +42,10 @@
         $ps = $pdo -> prepare($sql);
         $ps -> bindValue(1,$_POST['id'],PDO::PARAM_INT);
         $ps -> execute();
+
+        $selectSql = "SELECT * FROM categorys";
+        $selectps = $pdo -> prepare($selectSql);
+        $selectps -> execute();
         foreach($ps -> fetchAll() as $row){
     ?>
     <div class="title ms-4 me-4">
@@ -63,7 +67,14 @@
         <p><?php echo $row['expl'] ?></p>
     </div>
             <div class="title mt-4 ms-4 me-4">
-                    <button class="btn btn-secondary offset-4 col-4" type="submit" onclick="history.back(-2)">カテゴリー</button>
+                <?php
+                foreach($selectps -> fetchAll() as $row){
+                    $id = $row['category_id'];
+                }
+                ?>
+                <form action="../subdivision/subdivision.php?id=<?php echo $id ?>" method="post">
+                    <button class="btn btn-secondary offset-4 col-4" type="submit">カテゴリー</button>
+                </form>
                     <!--上が上手く動かなかった時用
                     <button class="btn btn-secondary offset-1 col-4" onclick="redirectToQuestionSelection()">問題選択へ</button>
                     <script>
