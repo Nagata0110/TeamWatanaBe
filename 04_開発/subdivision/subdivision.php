@@ -40,12 +40,16 @@
                 $id = $row['question_id'];
         ?>
         <form action="../problem/problem.php?id=<?php echo $id ?>" method="post">
-            <div class="button mt-2 ms-4 me-4">
+            <div class="button  mt-2 ms-4 me-4">
+                <?php
+                
+                ?>
                 <?php if($row['private'] === 0){ ?>
-                    <button type="submit" class="btn btn-secondary col-12 mt-3" value="<?php echo $row['quiz_title'] ?>" name="title"><?php echo $row['quiz_title']?></button>
+                    <button type="submit" class="btn btn-secondary mt-3 col-12" value="<?php echo $row['quiz_title'] ?>" name="title"><?php echo $row['quiz_title']?></button>
                 <?php
                 }
                 ?>
+            </div>
         </form>
         <?php
             }
@@ -53,7 +57,9 @@
     </div>
 
     <div class="title mt-5 ms-4 me-4">
-        <button class="btn btn-primary offset-2 col-8" onclick="location.href='../home/home.php'">戻る</button>
+        <form action="../home/home.php" method="get">
+            <button class="btn btn-primary offset-2 col-8" type="submit">戻る</button>
+        </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>

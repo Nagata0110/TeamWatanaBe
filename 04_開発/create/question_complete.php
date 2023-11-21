@@ -32,36 +32,53 @@
     </div>
     <?php
         $pdo = new PDO('mysql:host=mysql202.phy.lolipop.lan;dbname=LAA1418434-aaa;charset=utf8','LAA1418434', '090414');
-        $sql = "INSERT INTO quiz(question, choices1, choices2, choices3, choices4, answer, expl, quiz_title, private) VALUES(?,?,?,?,?,?,?,?,?)";
-        $ps = $pdo->prepare($sql);
-        $ps->bindValue(1, $_POST['question'], PDO::PARAM_STR);
-        $ps->bindValue(2, $_POST['choice1'], PDO::PARAM_STR);
-        $ps->bindValue(3, $_POST['choice2'], PDO::PARAM_STR);
-        $ps->bindValue(4, $_POST['choice3'], PDO::PARAM_STR);
-        $ps->bindValue(5, $_POST['choice4'], PDO::PARAM_STR);
-        $ps->bindValue(6, $_POST['answer'], PDO::PARAM_STR);
-        $ps->bindValue(7, $_POST['expl'], PDO::PARAM_STR);
-        $ps->bindValue(8, $_POST['title'], PDO::PARAM_STR);
-        $ps->bindValue(9, 1, PDO::PARAM_INT);
-        $ps->execute();
+        $sqlLike ="SELECT * FROM quiz";
+        $ps1 = $pdo->prepare($sqlLike);
+        $ps1->execute();
+        foreach($ps1 -> fetchAll() as $row){
+        if($row['question'] != $_POST['question'] && $row['expl'] != $_POST['expl']){
+            $sql = "INSERT INTO quiz(question, choices1, choices2, choices3, choices4, answer, expl, quiz_title, private) VALUES(?,?,?,?,?,?,?,?,?)";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1, $_POST['question'], PDO::PARAM_STR);
+            $ps->bindValue(2, $_POST['choice1'], PDO::PARAM_STR);
+            $ps->bindValue(3, $_POST['choice2'], PDO::PARAM_STR);
+            $ps->bindValue(4, $_POST['choice3'], PDO::PARAM_STR);
+            $ps->bindValue(5, $_POST['choice4'], PDO::PARAM_STR);
+            $ps->bindValue(6, $_POST['answer'], PDO::PARAM_STR);
+            $ps->bindValue(7, $_POST['expl'], PDO::PARAM_STR);
+            $ps->bindValue(8, $_POST['title'], PDO::PARAM_STR);
+            $ps->bindValue(9, 1, PDO::PARAM_INT);
+            $ps->execute();
 
-        $selectSql = "SELECT question_id FROM quiz WHERE question = ?";
-        $selectps = $pdo->prepare($selectSql);
-        $selectps->bindValue(1, $_POST['question'], PDO::PARAM_STR);
-        $selectps->execute();
-        
-        foreach($selectps -> fetchAll() as $row){
-            $insertSql = "INSERT INTO quizcategorys(question_id, category_id) VALUES(?,?)";
-            $insertps = $pdo->prepare($insertSql);
-            $insertps->bindValue(1, $row['question_id'], PDO::PARAM_INT);
-            $insertps->bindValue(2, $_POST['category'], PDO::PARAM_INT);
-            $insertps->execute();
+
+            $selectSql = "SELECT question_id FROM quiz WHERE question = ?";
+            $selectps = $pdo->prepare($selectSql);
+            $selectps->bindValue(1, $_POST['question'], PDO::PARAM_STR);
+            $selectps->execute();
+
+            foreach($selectps -> fetchAll() as $row){
+                $insertSql = "INSERT INTO quizcategorys(question_id, category_id) VALUES(?,?)";
+                $insertps = $pdo->prepare($insertSql);
+                $insertps->bindValue(1, $row['question_id'], PDO::PARAM_INT);
+                $insertps->bindValue(2, $_POST['category'], PDO::PARAM_INT);
+                $insertps->execute();
+            } 
+        ?>
+        <div class="text-center md-3">
+            <h2 class="mt-5">問題の登録申請を行いました。</h2>
+            <button class="mt-5 btn btn-primary" onclick="location.href='./question_create.php'">問題登録へ</button>
+        </div>
+        <?php    
+        }else{
+        ?>
+            <div class="text-center md-3">
+                <h2 class="mt-5">既に問題が登録されています。</h2>
+                <button class="mt-5 btn btn-primary" onclick="location.href='./question_create.php'">問題登録へ</button>
+            </div>
+        <?php
         }
+    }
     ?>
-    <div class="text-center md-3">
-        <h2 class="mt-5">問題の登録申請を行いました。</h2>
-        <button class="mt-5 btn btn-primary" onclick="location.href='./question_create.php'">問題登録へ</button>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
