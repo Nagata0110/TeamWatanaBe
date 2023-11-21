@@ -40,7 +40,17 @@
     ?>
 
     <!-- 画像挿入 -->
-   <div class="row mt-5">
+    <div class="mt-5 ms-4 me-4">
+        <div class="col-12">
+            <div class="card">
+                <a href="../rand/rand.php" class="link">
+                    <h1 class="text-center pt-2 pb-2">ランダム問題</h1>
+                </a>
+            </div>
+        </div>
+    </div>
+
+   <div class="row mt-2">
             <?php 
                 foreach ($ps -> fetchAll() as $row ) { 
                     $id = $row['category_id']
@@ -56,8 +66,7 @@
                 </div>
             </div>
             <?php } ?>
-        </div>
-        
+    </div>
 </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
