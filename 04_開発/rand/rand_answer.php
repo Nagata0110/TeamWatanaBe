@@ -36,7 +36,7 @@
         $sql = "SELECT * FROM quiz AS q 
                 INNER JOIN quizcategorys AS qc ON q.question_id = qc.question_id 
                 INNER JOIN categorys AS c ON qc.category_id = c.category_id 
-                WHERE q.question_id = ?;";
+                WHERE q.question_id = ? AND q.private = 0;";
         $ps = $pdo -> prepare($sql);
         $ps -> bindValue(1,$_POST['id'],PDO::PARAM_INT);
         $ps -> execute();
