@@ -68,7 +68,7 @@
     </div>
     <div class="title mt-4 ms-4 me-4">
         <label for="questionText" class="form-label"><h5>問題文</h5></label><br>
-        <b><?php echo $row['question'] ?></b>
+        <b><?php echo nl2br($row['question']) ?></b>
     </div>
 
     <label for="radioButton" class="mt-5 ms-4 me-4">選択肢１</label>
@@ -103,7 +103,7 @@
 
     <div class="title mt-4 ms-4 me-4">
         <label for="explanation" class="form-label"><h5>解説</h5></label><br>
-        <b><?php echo $row['expl'] ?><b>
+        <b><?php echo nl2br($row['expl']) ?><b>
     </div>
 
     <div class="title mt-4 ms-4 me-4 mb-4">
