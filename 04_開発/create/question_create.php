@@ -71,7 +71,7 @@
         <div class="title mt-2 ms-4 me-4">
             <label for="exampleFormControlTextarea1" class="form-label">カテゴリー</label>
             <select class="form-select" aria-label="Default select example" name="category" required>
-                <option hidden>カテゴリーを選択してください。</option>
+                <option value="" hidden>カテゴリーを選択してください。</option>
                 <?php
                     $sql = "SELECT * FROM categorys";
                     $ps = $pdo -> prepare($sql);
