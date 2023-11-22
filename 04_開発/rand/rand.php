@@ -33,7 +33,7 @@
 
 <?php
 $pdo = new PDO('mysql:host=mysql202.phy.lolipop.lan;dbname=LAA1418434-aaa;charset=utf8','LAA1418434', '090414');
-$sql = "SELECT * FROM quiz ORDER BY RAND()";
+$sql = "SELECT * FROM quiz WHERE private = 0 ORDER BY RAND()";
 $ps = $pdo->prepare($sql);
 $ps->execute();
 $cnt = 0;
