@@ -44,25 +44,25 @@
         </div>
         
         <label for="radioButton" class="mt-5 ms-4 me-4">選択肢１</label>
-        <div class="container ms-4 me-4">
+        <div class="container ms-4 me-4 col-10">
             <input type="radio" id="choices" name="answer" class="radio-button" value="1" required>
             <input type="text" class="form-control" id="exampleFormControlInput1" name="choice1" required>
         </div>
 
         <label for="radioButton" class="ms-4 me-4">選択肢２</label>
-        <div class="container ms-4 me-4">
+        <div class="container ms-4 me-4 col-10">
             <input type="radio" id="choices" name="answer" class="radio-button" value="2" required>
             <input type="text" class="form-control" id="exampleFormControlInput1" name="choice2" required>
         </div>
 
         <label for="radioButton" class="ms-4 me-4">選択肢３</label>
-        <div class="container ms-4 me-4">
+        <div class="container ms-4 me-4 col-10">
             <input type="radio" id="choices" name="answer" class="radio-button" value="3" required>
             <input type="text" class="form-control" id="exampleFormControlInput1" name="choice3" required>
         </div>
 
         <label for="radioButton" class="ms-4 me-4">選択肢４</label>
-        <div class="container ms-4 me-4">
+        <div class="container ms-4 me-4 col-10">
             <input type="radio" id="choices" name="answer" class="radio-button" value="4"required>
             <input type="text" class="form-control" id="exampleFormControlInput1" name="choice4" required>
         </div>
