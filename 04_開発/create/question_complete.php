@@ -31,6 +31,7 @@
         </nav>
     </div>
     <?php
+            $pdo = new PDO('mysql:host=mysql202.phy.lolipop.lan;dbname=LAA1418434-aaa;charset=utf8','LAA1418434', '090414');
             $sql = "INSERT INTO quiz(question, choices1, choices2, choices3, choices4, answer, expl, quiz_title, private) VALUES(?,?,?,?,?,?,?,?,?)";
             $ps = $pdo->prepare($sql);
             $ps->bindValue(1, $_POST['question'], PDO::PARAM_STR);
