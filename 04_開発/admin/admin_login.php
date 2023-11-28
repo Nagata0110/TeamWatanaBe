@@ -21,7 +21,7 @@
     <form action="./admin_logincheck.php" method="post">
         <div class="title offset-4 col-4">
             <label for="title" class="title">メールアドレス</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="メールアドレスを入力してください。" name="mail" required>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="メールアドレスを入力してください。" name="mail" required>
         </div>
 
         <div class="title offset-4 col-4">
