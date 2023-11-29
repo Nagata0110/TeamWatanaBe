@@ -9,7 +9,6 @@
     <title>ホーム画面</title>
 </head>
 <body>
-<div class="overflow-hidden">
     <!-- ヘッダー -->
     <div class="sticky-top">
         <nav class="navbar navbar-expand-lg">
@@ -20,17 +19,18 @@
                 <a class="navbar-brand text-center" href="#">社会人ビジネスマナークイズ</a>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./home.php">ホーム</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../create/question_create.php">問題作成</a>
-                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../home/home.php">ホーム</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../create/question_create.php">問題作成</a>
+                    </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </div>
+    <div class="overflow-hidden">
     <?php
     $pdo = new PDO('mysql:host=mysql202.phy.lolipop.lan;dbname=LAA1418434-aaa;charset=utf8','LAA1418434', '090414');
     $sql = "SELECT * FROM quiz WHERE question_id = ?";
