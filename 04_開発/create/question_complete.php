@@ -61,7 +61,9 @@
         ?>
         <div class="text-center md-3">
             <h2 class="mt-5">問題の登録申請を行いました。</h2>
-            <button class="mt-5 btn btn-primary" onclick="location.href='./question_create.php'">問題登録へ</button>
+            <form action="./question_create.php" method="get">
+                <input type="submit"  class="mt-5 btn btn-primary" value="問題登録へ">
+            </form>
         </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
