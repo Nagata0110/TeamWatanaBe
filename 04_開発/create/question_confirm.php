@@ -129,7 +129,7 @@
     </div>
 
     <div class="title mt-4 ms-4 me-4">
-        <button type="button" class="btn btn-secondary offset-1 col-4" onclick="history.back()">修正</button>
+        <button type="button" class="btn btn-secondary offset-1 col-4" onclick="location.href='./question_create.php'">修正</button>
         <button type="submit"class="btn btn-primary offset-2 col-4">登録</button>
     </div>
         </form>

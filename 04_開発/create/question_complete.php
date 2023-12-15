@@ -23,7 +23,7 @@
                             <a class="nav-link active" aria-current="page" href="../home/home.php">ホーム</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../create/question_create.php">問題作成</a>
+                            <a class="nav-link active" aria-current="page" href="./question_create.php">問題作成</a>
                         </li>
                     </ul>
                 </div>

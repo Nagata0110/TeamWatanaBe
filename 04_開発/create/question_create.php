@@ -96,7 +96,7 @@
         </div>
 
         <div class="title mt-4 ms-4 me-4">
-            <button class="btn btn-secondary offset-1 col-4" type="button" onclick="history.back()">戻る</button>
+            <button class="btn btn-secondary offset-1 col-4" type="button" onclick="location.href='../home/home.php'">戻る</button>
             <button class="btn btn-primary offset-2 col-4" type="submit">確認</button>
         </div>
 </form>
